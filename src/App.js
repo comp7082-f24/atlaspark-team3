@@ -9,8 +9,9 @@ import { Icon, divIcon, point } from "leaflet";
 
 // create custom icon marker
 const customIcon = new Icon({
-  iconUrl: require("./icons/marker.png"),
-  iconSize: [24, 36] // size of the icon
+  iconUrl: require("./icons/disabilitymarker.png"),
+  //iconSize: [24, 36] // size of the marker icon
+  iconSize: [24, 28] // size of the disability marker icon
 });
 
 // custom cluster icon
