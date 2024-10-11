@@ -21,8 +21,9 @@
     height: 90vh;
     width: 90%;
     border-radius: 2rem;
+
   }
-  
+
   .cluster-icon {
     background-color: #333;
     height: 2em;
@@ -34,5 +35,54 @@
     border-radius: 50%;
     font-size: 1.2rem;
     box-shadow: 0 0 0px 5px #fff;
+  }
+  @media only screen 
+    and (min-width: 320px) 
+    and (max-width: 480px){
+    [class*= "cluster-icon"]{
+      height: 1.4em;
+      width: 1.4em;
+      font-size: 0.8rem;
+    }
+  }
+  @media only screen 
+    and (min-width: 768px) 
+    and (max-width: 1024px){
+    [class*= "cluster-icon"]{
+      height: 1.7em;
+      width: 1.7em;
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen 
+    and (min-width: 320px) 
+    and (max-width: 480px){
+    [class*= "heading"]{
+      font-size: 16px;
+    }
+  }
+  
+  @media only screen 
+    and (min-width: 768px) 
+    and (max-width: 1024px){
+    [class*= "heading"]{
+      font-size: 24px;
+    }
+  }
+  
+  @media only screen 
+    and (min-width: 320px) 
+    and (max-width: 480px){
+    [class*= "leaflet-control-zoom-in"], [class*= "leaflet-control-zoom-out"]{
+      font-size: 12px !important;
+    }
+  }
+  @media only screen 
+    and (min-width: 768px) 
+    and (max-width: 1024px){
+    [class*= "leaflet-control-zoom-in"], [class*= "leaflet-control-zoom-out"]{
+      font-size: 14px !important;
+    }
   }
   

@@ -58,6 +58,7 @@ const App = () => {
         const coords = data.results.map(record => ({
           lat: record.geom.geometry.coordinates[1], // Latitude
           lon: record.geom.geometry.coordinates[0], // Longitude
+          name: record.location || "Unamed location",
         }));
 
         setCoordinates(coords);
@@ -73,7 +74,7 @@ const App = () => {
 
   return (
     <MapContainer center={[49.2827, -123.1207]} zoom={15}>
-      {/* OPEN STREEN MAPS TILES */}
+      {/* OPEN STREET MAPS TILES */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,8 +86,8 @@ const App = () => {
       >
         {/* Mapping through the markers */}
         {coordinates.map((coord, index) => (
-          <Marker position={[coord.lat,coord.lon]} icon={customIcon}>
-            <Popup>{index}</Popup>
+          <Marker key ={index} position={[coord.lat,coord.lon]} icon={customIcon}>
+            <Popup>{coord.name}</Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>
@@ -106,6 +107,7 @@ import SearchResults from "./pages/SearchResults";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import descriptions from '../node_modules/jest-config/build/Descriptions.d';
 
 function App() {
   return (
