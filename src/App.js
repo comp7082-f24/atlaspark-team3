@@ -1,5 +1,8 @@
 import "./styles.css";
 import "leaflet/dist/leaflet.css";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import React, { useEffect, useState } from 'react';
@@ -73,25 +76,35 @@ const App = () => {
 
 
   return (
-    <MapContainer center={[49.2827, -123.1207]} zoom={15}>
-      {/* OPEN STREET MAPS TILES */}
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <>
+      <MapContainer center={[49.2827, -123.1207]} zoom={15}>
+        {/* OPEN STREET MAPS TILES */}
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <MarkerClusterGroup
-        chunkedLoading
-        iconCreateFunction={createClusterCustomIcon}
-      >
-        {/* Mapping through the markers */}
-        {coordinates.map((coord, index) => (
-          <Marker key ={index} position={[coord.lat,coord.lon]} icon={customIcon}>
-            <Popup>{coord.name}</Popup>
-          </Marker>
-        ))}
-      </MarkerClusterGroup>
-    </MapContainer>
+        <MarkerClusterGroup
+          chunkedLoading
+          iconCreateFunction={createClusterCustomIcon}
+        >
+          {/* Mapping through the markers */}
+          {coordinates.map((coord, index) => (
+            <Marker key ={index} position={[coord.lat,coord.lon]} icon={customIcon}>
+              <Popup>{coord.name}</Popup>
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
+      </MapContainer>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
 
   );
 };
