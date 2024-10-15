@@ -34,7 +34,7 @@ const User = mongoose.model('User', userSchema);
 /****** URL requests  **********/
 
 // Sign Up route
-app.post('/signup', async (req, res) => {
+app.post('/api//signup', async (req, res) => {
     const { username, password } = req.body
 
     const userExists =  await User.findOne({ username });
@@ -48,7 +48,7 @@ app.post('/signup', async (req, res) => {
 });
 
 // Login route
-app.post('/login', async (req,res) => {
+app.post('/api/login', async (req,res) => {
     const { username, password } = req.body;
 
     const user =  await User.findOne({ username });
