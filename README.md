@@ -1,11 +1,3 @@
-# Instructions
-
-Open two terminals 
-1st terminal - "node server.js"
-2nd terminal - "npm start"
-
-Make sure you follow the sequence above
-
 
 # Atlas Park - A Predictive Parking Webapp
 This is the repo for COMP 7082 Group 3's project!
