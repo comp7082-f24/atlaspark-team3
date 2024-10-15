@@ -34,7 +34,7 @@ const User = mongoose.model('User', userSchema);
 /****** URL requests  **********/
 
 // Sign Up route
-app.post('/api//signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
     const { username, password } = req.body
 
     const userExists =  await User.findOne({ username });
@@ -48,10 +48,11 @@ app.post('/api//signup', async (req, res) => {
 });
 
 // Login route
-app.post('/api/login', async (req,res) => {
+app.post('/login', async (req,res) => {
     const { username, password } = req.body;
 
     const user =  await User.findOne({ username });
+
     if(!user) return res.status(400).send('User not found');
 
     const isPasswordValid = await bcrypt.compare(password, user.password);

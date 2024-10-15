@@ -50,6 +50,5 @@
   },
   "devDependencies": {
     "concurrently": "^9.0.1"
-  },
-  "proxy":"https://atlaspark.netlify.app/"
+  }
 }
