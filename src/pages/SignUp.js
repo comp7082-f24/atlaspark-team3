@@ -7,11 +7,12 @@ const SignUp = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    let baseURL = "https://atlaspark.netlify.app/";
 
     const handleSignup = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:5000/signup', { username, password });
+            await axios.post(`${baseURL}/signup`, { username, password });
             alert('User registered succesufully');
             navigate('/');
         } catch (error) {

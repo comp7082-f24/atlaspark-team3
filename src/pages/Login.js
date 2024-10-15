@@ -7,11 +7,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  let baseURL = "https://atlaspark.netlify.app/";
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', {username, password});
+      const response = await axios.post(`${baseURL}/login`, {username, password});
       alert('Login Successful');
       localStorage.setItem('token', response.data.token);
       navigate('/');
